@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  nodeserver:
+    build:
+      context: ./
+    expose:
+      - 8000
+    depends_on:
+      - database
+    env_file:
+      - ./.env.docker
+  database:
+    image: postgres
+    hostname: database
+    env_file:
+      - ./.env.docker
